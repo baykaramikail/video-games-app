@@ -278,6 +278,7 @@
                     <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="uZS-Lr-zh8"/>
                     <connections>
                         <outlet property="GamesCollectionView" destination="Ed5-MW-4vc" id="w9c-HG-fAc"/>
+                        <segue destination="9Hr-9e-spN" kind="presentation" identifier="showDetails" modalPresentationStyle="automatic" id="nXu-Lk-arG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbH-wG-pgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -289,15 +290,15 @@
             <objects>
                 <viewController storyboardIdentifier="detailsVC" id="9Hr-9e-spN" customClass="DetailsGameVC" customModule="Video_Games_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ylt-wD-qLi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-PS-2X2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="282"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1J3-K4-KAT">
-                                <rect key="frame" x="0.0" y="344" width="414" height="552"/>
+                                <rect key="frame" x="0.0" y="282" width="414" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfr-tD-6lA">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
@@ -356,7 +357,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="I5d-3T-ofw"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbF-xj-WYQ" customClass="CustomView" customModule="Video_Games_App" customModuleProvider="target">
-                                <rect key="frame" x="350" y="280" width="64" height="64"/>
+                                <rect key="frame" x="350" y="218" width="64" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lN-kP-We8">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
@@ -381,7 +382,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="42"/>
+                                        <real key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -401,8 +402,10 @@
                             <constraint firstItem="hvt-PS-2X2" firstAttribute="leading" secondItem="Ylt-wD-qLi" secondAttribute="leading" id="iO3-hG-FVp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5bm-X0-i3h"/>
                     <connections>
                         <outlet property="banner" destination="hvt-PS-2X2" id="ygv-k3-vnN"/>
+                        <outlet property="gameDescription" destination="zOO-3l-ldX" id="iMQ-u3-6uL"/>
                         <outlet property="likeButton" destination="9lN-kP-We8" id="V64-BT-Mpg"/>
                         <outlet property="likeButtonSuperview" destination="qbF-xj-WYQ" id="BxR-9U-ySd"/>
                         <outlet property="metacriticRate" destination="dAd-ap-xa3" id="Hmp-qs-doM"/>
@@ -412,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9E-xX-TbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1296" y="358"/>
+            <point key="canvasLocation" x="1172" y="61"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KVB-GM-3qX">
@@ -560,6 +563,7 @@
                     <navigationItem key="navigationItem" title="Your Favorites" id="wp3-Cx-uhj"/>
                     <connections>
                         <outlet property="FavoriteGamesCollectionView" destination="2sp-2U-rV4" id="0uF-kQ-YJd"/>
+                        <segue destination="9Hr-9e-spN" kind="presentation" identifier="showDetails" id="cgN-48-VRv"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi6-fR-1U7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -567,6 +571,9 @@
             <point key="canvasLocation" x="219" y="838"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nXu-Lk-arG"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>

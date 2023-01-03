@@ -18,8 +18,17 @@ class BaseViewController: UIViewController {
         GamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
 
     }
+    // Perform segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailsVC = segue.destination as? DetailsGameVC, let game = sender as? Game{
+            detailsVC.gameToShow = game
+            detailsVC.gameToShow?.placeInArray = game.placeInArray
+        }
+    }
+    
 }
 
+// collection view stuff. number of rows etc
 extension BaseViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return games.count
@@ -39,14 +48,13 @@ extension BaseViewController: UICollectionViewDataSource,UICollectionViewDelegat
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsGameVC
-        self.present(detailVC, animated: true, completion: nil)
-        
+        var selectedGame = games[indexPath.item]
+        selectedGame.placeInArray = games.firstIndex(where: {$0 == selectedGame})!
+        performSegue(withIdentifier: "showDetails", sender: selectedGame)
     }
-    
 }
 
-
+// this code gives collection view's cells its sizes
 extension BaseViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 360, height: 80)

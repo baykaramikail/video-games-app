@@ -8,12 +8,15 @@
 import Foundation
 import UIKit
 
-struct Game{
+struct Game: Equatable{
+    var favorited = false
+    var placeInArray = 0
+    var favGamePlace = 0
+    
     let banner: UIImage?
     let name: String
     let rating: String
     let release: String
     let description: String
-    let favorited = false
 }
 
