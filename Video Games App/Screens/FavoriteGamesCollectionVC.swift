@@ -15,27 +15,20 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FavoriteGamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
-        if favoriteGames.isEmpty{
-            let warningLabel = UILabel()
-            warningLabel.text = "Your favorite games listed here."
-            warningLabel.translatesAutoresizingMaskIntoConstraints = false
-            warningLabel.numberOfLines = 0
-            warningLabel.textAlignment = .center
-            self.view.addSubview(warningLabel)
-            warningLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-            warningLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            warningLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        }
-        
+
     }
-    // every time reloads the favorite collection view when favorites bar clicked
+    
+    // this code reloads the favorite collection view every time when favorites vc opened
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.FavoriteGamesCollectionView.reloadData()
+        
     }
+    
+    
     // performs seque
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let detailsVC = segue.destination as? DetailsGameVC, let game = sender as? Game{
+        if let detailsVC = segue.destination as? DetailsGameVC, let game = sender as? GameModel{
             detailsVC.gameToShow = game
         }
     }
@@ -49,16 +42,15 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteGameCell", for: indexPath) as! FavoriteGamesCollectionViewCell
         let game = favoriteGames[indexPath.item]
         
-        cell.banner.image = game.banner
+        cell.banner.downloadImage(from: game.backgroundImage)
         cell.title.text = game.name
-        cell.rating.text = game.rating
-        cell.released.text = game.release
+        cell.rating.text = String(game.rating)
+        cell.released.text = game.released
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var selectedGame = favoriteGames[indexPath.item]
-        selectedGame.favGamePlace = favoriteGames.firstIndex(where: {$0 == selectedGame})!
+        let selectedGame = favoriteGames[indexPath.item]
 
         performSegue(withIdentifier: "showDetails", sender: selectedGame)
     }
