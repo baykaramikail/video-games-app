@@ -24,6 +24,7 @@ class DetailsGameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.banner.downloadImage(from: gameToShow.backgroundImage)
+        self.banner.layer.cornerRadius = 25
         self.name.text = gameToShow.name
         self.released.text = "Release date: \(gameToShow.released)"
         self.metacriticRate.text = "Rating: \(gameToShow.rating)"
@@ -40,14 +41,14 @@ class DetailsGameVC: UIViewController {
     }
     
     @IBAction func likeButtonClicked(_ sender: Any) {
-        if gameToShow.favorited == false{
+        if self.likeButton.tintColor == .white{
             self.likeButton.tintColor = .green
             self.likeButtonSuperview.backgroundColor = .white
             var index = 0
             for game in games{
                 if game.id == gameToShow.id{
                     games[index].favorited = true
-                    favoriteGames.append(games[index])
+                    favoriteGames.insert(games[index], at: 0)
                     break
                 }
                 index += 1

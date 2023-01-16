@@ -43,6 +43,7 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
         let game = favoriteGames[indexPath.item]
         
         cell.banner.downloadImage(from: game.backgroundImage)
+        cell.banner.layer.cornerRadius = 20
         cell.title.text = game.name
         cell.rating.text = String(game.rating)
         cell.released.text = game.released

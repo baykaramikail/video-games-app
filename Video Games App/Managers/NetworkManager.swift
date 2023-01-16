@@ -5,8 +5,8 @@
 //  Created by Mikail Baykara on 9.01.2023.
 //
 
-import Foundation
-import CoreVideo
+
+
 import UIKit
 
 protocol NetworkManagerDelegate{
@@ -64,8 +64,7 @@ class NetworkManager{
     
     func getGameDescription(id: Int, label: UILabel){
         let apiKey = "d578fc59bae14c89908b8541b5014ee8"
-        let baseUrl = "https://api.rawg.io/api/games/"
-        let urlString = "\(baseUrl)\(id)?key=\(apiKey)"
+        let urlString = "https://api.rawg.io/api/games/\(id)?key=\(apiKey)"
         
         if let url = URL(string: urlString){
             let session = URLSession(configuration: .default)

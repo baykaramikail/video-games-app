@@ -43,6 +43,7 @@ extension BaseViewController: UICollectionViewDataSource,UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath) as! GameCollectionViewCell
         let game = games[indexPath.item]
         cell.banner.downloadImage(from: game.backgroundImage)
+        cell.banner.layer.cornerRadius = 20
         cell.title.text = game.name
         cell.rating.text = String(game.rating)
         cell.released.text = game.released

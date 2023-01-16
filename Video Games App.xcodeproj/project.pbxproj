@@ -19,7 +19,6 @@
 		B3372E48294470A7001D5B7B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3372E47294470A7001D5B7B /* BaseViewController.swift */; };
 		B3372E4A294473EF001D5B7B /* FavoriteGamesCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3372E49294473EF001D5B7B /* FavoriteGamesCollectionVC.swift */; };
 		B3372E4C29448662001D5B7B /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3372E4B29448662001D5B7B /* CustomUIView.swift */; };
-		B3678D0D29719F97007D26E8 /* CustomBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3678D0C29719F97007D26E8 /* CustomBlurView.swift */; };
 		B37797B1296D87E700FF8145 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37797B0296D87E700FF8145 /* GameData.swift */; };
 		B39314AE29451E21000F8202 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39314AD29451E21000F8202 /* GameModel.swift */; };
 		B3A4B7CE2948EA8B00694C18 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4B7CD2948EA8B00694C18 /* GameCollectionViewCell.swift */; };
@@ -43,7 +42,6 @@
 		B3372E47294470A7001D5B7B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B3372E49294473EF001D5B7B /* FavoriteGamesCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGamesCollectionVC.swift; sourceTree = "<group>"; };
 		B3372E4B29448662001D5B7B /* CustomUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
-		B3678D0C29719F97007D26E8 /* CustomBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBlurView.swift; sourceTree = "<group>"; };
 		B37797B0296D87E700FF8145 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		B39314AD29451E21000F8202 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		B3A4B7CD2948EA8B00694C18 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				B3372E4B29448662001D5B7B /* CustomUIView.swift */,
-				B3678D0C29719F97007D26E8 /* CustomBlurView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -248,7 +245,6 @@
 				B3A7E6842972D22D00A91E61 /* StringExtensions.swift in Sources */,
 				B30490342972073B00441C95 /* GameDescriptionData.swift in Sources */,
 				B3372E4C29448662001D5B7B /* CustomUIView.swift in Sources */,
-				B3678D0D29719F97007D26E8 /* CustomBlurView.swift in Sources */,
 				B3A4B7CE2948EA8B00694C18 /* GameCollectionViewCell.swift in Sources */,
 				B335A19E296C7C1F00FA14F5 /* NetworkManager.swift in Sources */,
 				B3F02EB8294BCECE00303271 /* Game Lists.swift in Sources */,
@@ -411,6 +407,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -439,6 +436,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
