@@ -10,11 +10,7 @@ import UIKit
 
 struct GameModel: Codable{
   
-    var favorited = false{
-        didSet{
-            print("changed to \(favorited)")
-        }
-    }
+    var favorited = false
     
     let id: Int
     let name: String

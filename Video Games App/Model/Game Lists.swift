@@ -13,6 +13,4 @@ var games = [GameModel]()
 
 var favoriteGames = [GameModel]()
 
-
-
-
+var firstThreeGames = [GameModel]()

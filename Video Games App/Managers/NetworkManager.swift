@@ -13,7 +13,6 @@ protocol NetworkManagerDelegate{
     func getGames(model:[GameModel])
 }
 
-
 class NetworkManager{
     
     var delegate: NetworkManagerDelegate?
