@@ -28,6 +28,7 @@ class BaseViewController: UIViewController{
         
         GamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
        
+        startTimer()
     }
     
     
@@ -113,16 +114,44 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout{
          }
         pageController.currentPage = indexPath.row
     }
+    
+    // lets pageCollectionView to move next cell automatically.
+    
+    func startTimer() {
+       _ =  Timer.scheduledTimer(timeInterval: 7.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+    }
+
+    @objc func scrollAutomatically(_ timer1: Timer) {
+
+        if let coll  = pageCollectionView {
+            for cell in coll.visibleCells {
+                let indexPath: IndexPath? = coll.indexPath(for: cell)
+                if ((indexPath?.row)! < firstThreeGames.count - 1){
+                    let indexPath1: IndexPath?
+                    indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
+
+                    coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
+                }
+                else{
+                    let indexPath1: IndexPath?
+                    indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
+                    coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
+                }
+            }
+        }
+    }
+    
+    
 }
 
-// Conforms network manager delegate
+// Conforms network manager delegate.
 extension BaseViewController: NetworkManagerDelegate{
     
     func getGames(model: [GameModel]) {
+        
+        games += model
+        firstThreeGames = Array(model[0...2])
         DispatchQueue.main.async {
-            games += model
-            firstThreeGames = Array(games[0...2])
-            
             self.pageCollectionView.reloadData()
             self.GamesCollectionView.reloadData()
         }

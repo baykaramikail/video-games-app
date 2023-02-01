@@ -30,7 +30,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXp-mU-GQW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907" y="76"/>
+            <point key="canvasLocation" x="-991" y="418"/>
         </scene>
         <!--Base View Controller-->
         <scene sceneID="PvT-Lz-SxJ">
@@ -55,7 +55,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZJ-XI-FJd" customClass="CustomView" customModule="Video_Games_App" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="60" width="414" height="230"/>
+                                                <rect key="frame" x="0.0" y="48" width="414" height="230"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sS4-fT-nrL">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
@@ -139,18 +139,18 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8sK-pL-5iV">
-                                                <rect key="frame" x="147" y="290" width="120" height="26"/>
+                                                <rect key="frame" x="147" y="278" width="120" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="Mau-Nk-4c5"/>
                                                 </constraints>
                                                 <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="currentPageIndicatorTintColor" systemColor="systemGreenColor"/>
+                                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </pageControl>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EH-Pp-lWi">
-                                                <rect key="frame" x="0.0" y="318" width="414" height="566"/>
+                                                <rect key="frame" x="0.0" y="306" width="414" height="578"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ed5-MW-4vc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="566"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="578"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ujl-Cv-akg">
                                                             <size key="itemSize" width="382" height="80"/>
@@ -305,7 +305,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="800" id="Ujz-1L-5El"/>
                                             <constraint firstAttribute="bottom" secondItem="1EH-Pp-lWi" secondAttribute="bottom" constant="16" id="WPr-CT-NAR"/>
                                             <constraint firstItem="1EH-Pp-lWi" firstAttribute="top" secondItem="8sK-pL-5iV" secondAttribute="bottom" constant="2" id="Yig-Dh-3Px"/>
-                                            <constraint firstItem="wZJ-XI-FJd" firstAttribute="top" secondItem="gKD-Xl-DBQ" secondAttribute="bottom" constant="16" id="Yt8-v3-3yK"/>
+                                            <constraint firstItem="wZJ-XI-FJd" firstAttribute="top" secondItem="gKD-Xl-DBQ" secondAttribute="bottom" constant="4" id="Yt8-v3-3yK"/>
                                             <constraint firstAttribute="trailing" secondItem="wZJ-XI-FJd" secondAttribute="trailing" id="k11-sr-OkF"/>
                                             <constraint firstAttribute="height" constant="900" id="oHn-r8-0my"/>
                                             <constraint firstItem="gKD-Xl-DBQ" firstAttribute="leading" secondItem="NeZ-Fc-Lr8" secondAttribute="leading" id="q59-VA-LCe"/>
@@ -343,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbH-wG-pgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218.84057971014494" y="75.669642857142847"/>
+            <point key="canvasLocation" x="67" y="106"/>
         </scene>
         <!--Details GameVC-->
         <scene sceneID="1B0-bT-QWh">
@@ -542,7 +542,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9E-xX-TbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167" y="76"/>
+            <point key="canvasLocation" x="1713" y="371"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KVB-GM-3qX">
@@ -561,7 +561,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUu-09-R5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="838"/>
+            <point key="canvasLocation" x="67" y="823"/>
         </scene>
         <!--Your Favorites-->
         <scene sceneID="O1o-S1-VyS">
@@ -708,11 +708,11 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi6-fR-1U7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="838"/>
+            <point key="canvasLocation" x="880" y="823"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nXu-Lk-arG"/>
+        <segue reference="cgN-48-VRv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
