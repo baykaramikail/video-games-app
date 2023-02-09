@@ -10,11 +10,15 @@ import UIKit
 class BaseViewController: UIViewController{
     
     @IBOutlet var GamesCollectionView: UICollectionView!
+    @IBOutlet var GamesColViewSuperview: UIView!
     @IBOutlet var pageCollectionView: UICollectionView!
     @IBOutlet var pageController: UIPageControl!
+    lazy private var originalConstraints = view.constraints
+    lazy private var newConstraints: [NSLayoutConstraint] = []
     
     var networkManager = NetworkManager()
     var page = 1
+    let searchController = UISearchController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +30,15 @@ class BaseViewController: UIViewController{
         pageCollectionView.delegate = self
         pageCollectionView.dataSource = self
         
+        navigationItem.searchController = searchController
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        
         GamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
-       
+        
+        self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.isTranslucent = false
+        
         startTimer()
     }
     
@@ -100,9 +111,9 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout{
     // gives collection view's cells its sizes
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.GamesCollectionView{
-            return CGSize(width: 360, height: 80)
+            return CGSize(width: 360, height: 75)
         }else{
-            return CGSize(width: 382, height: 212)
+            return CGSize(width: 382, height: 210)
         }
     }
     
@@ -150,6 +161,7 @@ extension BaseViewController: NetworkManagerDelegate{
     func getGames(model: [GameModel]) {
         
         games += model
+        gamesCopy = games
         firstThreeGames = Array(model[0...2])
         DispatchQueue.main.async {
             self.pageCollectionView.reloadData()
@@ -158,5 +170,47 @@ extension BaseViewController: NetworkManagerDelegate{
     }
 }
 
+
+extension BaseViewController: UISearchControllerDelegate, UISearchBarDelegate{
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        pageCollectionView.isHidden = true
+        pageController.isHidden = true
+        newConstraints = [
+            GamesColViewSuperview.topAnchor.constraint(equalTo: self.view.topAnchor),
+            GamesColViewSuperview.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            GamesColViewSuperview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            GamesColViewSuperview.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ]
+        NSLayoutConstraint.activate(newConstraints)
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            games = gamesCopy
+            self.GamesCollectionView.reloadData()
+        }
+        if searchText.count >= 3{
+            games = []
+            for game in gamesCopy{
+                if game.name.uppercased().contains(searchText.uppercased()){
+                    games.append(game)
+                }
+            }
+            self.GamesCollectionView.reloadData()
+        }
+    }
+    
+   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+       pageCollectionView.isHidden = false
+       pageController.isHidden = false
+       view.removeConstraints(newConstraints)
+       view.addConstraints(originalConstraints)
+       games = gamesCopy
+       self.GamesCollectionView.reloadData()
+   }
+    
+}
 
 

@@ -11,11 +11,26 @@ import UIKit
 
 class FavoriteGamesCollectionVC: UICollectionViewController {
     @IBOutlet var FavoriteGamesCollectionView: UICollectionView!
+    let warningLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         FavoriteGamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
 
+        warningLabel.frame = CGRect(x: self.view.bounds.size.width/2,y: 50,width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+        warningLabel.center = self.view.center
+        warningLabel.center.x = self.view.center.x
+        warningLabel.center.y = self.view.center.y
+        warningLabel.textAlignment = .center
+        warningLabel.font =  UIFont(name: "Helvetica-Bold", size: 16)
+        warningLabel.textColor = UIColor(red: 0.4, green: 0.2, blue: 0.8, alpha: 1)
+        warningLabel.numberOfLines = 0
+        warningLabel.text = """
+                        Please
+                        Like games to list them here.
+                        """
+        warningLabel.textAlignment = .center
+        self.view.addSubview(warningLabel)
     }
     
     // this code reloads the favorite collection view every time when favorites vc opened
@@ -23,6 +38,11 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
         super.viewWillAppear(animated)
         self.FavoriteGamesCollectionView.reloadData()
         
+        if favoriteGames.isEmpty == false{
+            self.warningLabel.isHidden = true
+        }else{
+            warningLabel.isHidden = false
+        }
     }
     
     

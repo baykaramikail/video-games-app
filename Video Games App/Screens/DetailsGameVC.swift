@@ -44,28 +44,24 @@ class DetailsGameVC: UIViewController {
         if self.likeButton.tintColor == .white{
             self.likeButton.tintColor = .green
             self.likeButtonSuperview.backgroundColor = .white
-            var index = 0
-            for game in games{
+            for var game in games{
                 if game.id == gameToShow.id{
-                    games[index].favorited = true
-                    favoriteGames.insert(games[index], at: 0)
+                    game.favorited = true
+                    favoriteGames.insert(game, at: 0)
                     break
                 }
-                index += 1
             }
         }else{
             self.likeButton.tintColor = .white
             self.likeButtonSuperview.backgroundColor = .black
-            var index = 0
-            for game in games{
+            for var game in games{
                 if game.id == gameToShow.id{
-                    games[index].favorited = false
+                    game.favorited = false
                     favoriteGames = favoriteGames.filter { game in
                         game.id != gameToShow.id
                     }
                     break
                 }
-                index += 1
             }
         }
     }
