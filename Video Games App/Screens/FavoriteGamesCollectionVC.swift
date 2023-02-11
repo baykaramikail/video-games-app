@@ -26,8 +26,8 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
         warningLabel.textColor = UIColor(red: 0.4, green: 0.2, blue: 0.8, alpha: 1)
         warningLabel.numberOfLines = 0
         warningLabel.text = """
-                        Please
-                        Like games to list them here.
+                        Your Favorite Games Listed Here
+                        Currently Empty!
                         """
         warningLabel.textAlignment = .center
         self.view.addSubview(warningLabel)

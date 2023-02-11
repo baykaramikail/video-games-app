@@ -16,5 +16,3 @@ var gamesCopy = [GameModel]()
 var favoriteGames = [GameModel]()
 
 var firstThreeGames = [GameModel]()
-
-var filteredGames = [GameModel]()

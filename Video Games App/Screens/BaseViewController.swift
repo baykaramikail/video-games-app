@@ -31,7 +31,7 @@ class BaseViewController: UIViewController{
         pageCollectionView.dataSource = self
         
         navigationItem.searchController = searchController
-        searchController.delegate = self
+        //searchController.delegate = self
         searchController.searchBar.delegate = self
         
         GamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -160,8 +160,8 @@ extension BaseViewController: NetworkManagerDelegate{
     
     func getGames(model: [GameModel]) {
         
-        games += model
-        gamesCopy = games
+        gamesCopy += model
+        games = gamesCopy
         firstThreeGames = Array(model[0...2])
         DispatchQueue.main.async {
             self.pageCollectionView.reloadData()
@@ -171,7 +171,7 @@ extension BaseViewController: NetworkManagerDelegate{
 }
 
 
-extension BaseViewController: UISearchControllerDelegate, UISearchBarDelegate{
+extension BaseViewController: UISearchBarDelegate{
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         pageCollectionView.isHidden = true
