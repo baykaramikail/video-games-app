@@ -160,8 +160,8 @@ extension BaseViewController: NetworkManagerDelegate{
     
     func getGames(model: [GameModel]) {
         
+        games += model
         gamesCopy += model
-        games = gamesCopy
         firstThreeGames = Array(model[0...2])
         DispatchQueue.main.async {
             self.pageCollectionView.reloadData()
