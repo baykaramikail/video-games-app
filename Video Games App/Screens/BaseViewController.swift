@@ -19,29 +19,31 @@ class BaseViewController: UIViewController{
     var networkManager = NetworkManager()
     var page = 1
     let searchController = UISearchController()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        networkManager.getGames(page: page)
+    
+    func setupDelegatesAndDataSource(){
         networkManager.delegate = self
         GamesCollectionView.delegate = self
         GamesCollectionView.dataSource = self
-    
+        searchController.searchBar.delegate = self
         pageCollectionView.delegate = self
         pageCollectionView.dataSource = self
-        
-        navigationItem.searchController = searchController
-        //searchController.delegate = self
-        searchController.searchBar.delegate = self
-        
-        GamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
-        self.navigationController!.navigationBar.barStyle = .black
-        self.navigationController!.navigationBar.isTranslucent = false
-        
-        startTimer()
     }
     
+    func setupSearchBar(){
+        navigationItem.searchController = searchController
+        self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.isTranslucent = false
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupDelegatesAndDataSource()
+        setupSearchBar()
+        networkManager.getGames(page: page)
+        startTimer()
+        
+        GamesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+    }
     
     // Perform segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,7 +51,6 @@ class BaseViewController: UIViewController{
             detailsVC.gameToShow = game
         }
     }
-    
 }
 
 
@@ -126,8 +127,8 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout{
         pageController.currentPage = indexPath.row
     }
     
-    // lets pageCollectionView to move next cell automatically.
     
+    // lets pageCollectionView to move next cell automatically.
     func startTimer() {
        _ =  Timer.scheduledTimer(timeInterval: 7.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
     }
@@ -152,7 +153,6 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout{
         }
     }
     
-    
 }
 
 // Conforms network manager delegate.
@@ -170,7 +170,7 @@ extension BaseViewController: NetworkManagerDelegate{
     }
 }
 
-
+// Search Bar delegations
 extension BaseViewController: UISearchBarDelegate{
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
