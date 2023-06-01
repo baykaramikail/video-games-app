@@ -23,7 +23,7 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
         warningLabel.center.y = self.view.center.y
         warningLabel.textAlignment = .center
         warningLabel.font =  UIFont(name: "Helvetica-Bold", size: 16)
-        warningLabel.textColor = UIColor(red: 0.4, green: 0.2, blue: 0.8, alpha: 1)
+        warningLabel.textColor = .black
         warningLabel.numberOfLines = 0
         warningLabel.text = """
                         Your Favorite Games Listed Here
@@ -38,10 +38,10 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
         super.viewWillAppear(animated)
         self.FavoriteGamesCollectionView.reloadData()
         
-        if favoriteGames.isEmpty == false{
-            self.warningLabel.isHidden = true
+        if favoriteGamesArray.isEmpty{
+            self.warningLabel.isHidden = false
         }else{
-            warningLabel.isHidden = false
+            warningLabel.isHidden = true
         }
     }
     
@@ -55,14 +55,14 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
     
     // favorite collection view stuff. number of rows etc
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return favoriteGames.count
+        return favoriteGamesArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteGameCell", for: indexPath) as! FavoriteGamesCollectionViewCell
-        let game = favoriteGames[indexPath.item]
+        let game = favoriteGamesArray[indexPath.item]
         
-        cell.banner.downloadImage(from: game.backgroundImage)
+        cell.banner.sd_setImage(with: URL(string: game.backgroundImage))
         cell.banner.layer.cornerRadius = 20
         cell.title.text = game.name
         cell.rating.text = String(game.rating)
@@ -71,7 +71,7 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedGame = favoriteGames[indexPath.item]
+        let selectedGame = favoriteGamesArray[indexPath.item]
 
         performSegue(withIdentifier: "showDetails", sender: selectedGame)
     }
@@ -80,6 +80,6 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
 // this code gives favorite collection view's cells its sizes
 extension FavoriteGamesCollectionVC: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 360, height: 80)
+        return CGSize(width: view.frame.size.width - 20, height: 80)
     }
 }

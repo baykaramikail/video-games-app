@@ -11,7 +11,7 @@ class DetailsGameVC: UIViewController {
     
     var gameToShow: GameModel!
     let networkManager = NetworkManager()
-
+    
     @IBOutlet var banner: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var released: UILabel!
@@ -23,8 +23,8 @@ class DetailsGameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.banner.downloadImage(from: gameToShow.backgroundImage)
-        self.banner.layer.cornerRadius = 25
+        self.banner.sd_setImage(with: URL(string: gameToShow.backgroundImage))
+        self.banner.layer.cornerRadius = 20
         self.name.text = gameToShow.name
         self.released.text = "Release date: \(gameToShow.released)"
         self.metacriticRate.text = "Rating: \(gameToShow.rating)"
@@ -40,37 +40,36 @@ class DetailsGameVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if favoriteGamesArray.contains(where: {$0.id == gameToShow.id}){
+            self.likeButton.tintColor = .green
+            self.likeButtonSuperview.backgroundColor = .white
+
+        }
+    }
+    
     @IBAction func likeButtonClicked(_ sender: Any) {
         if self.likeButton.tintColor == .white{
             self.likeButton.tintColor = .green
             self.likeButtonSuperview.backgroundColor = .white
-            for var game in games{
+            
+            for var game in gamesArray{
                 if game.id == gameToShow.id{
                     game.favorited = true
-                    favoriteGames.insert(game, at: 0)
+                    favoriteGamesArray.insert(game, at: 0)
                     break
                 }
             }
         }else{
             self.likeButton.tintColor = .white
             self.likeButtonSuperview.backgroundColor = .black
-            for var game in games{
-                if game.id == gameToShow.id{
-                    game.favorited = false
-                    favoriteGames = favoriteGames.filter { game in
-                        game.id != gameToShow.id
-                    }
-                    break
-                }
-            }
+            favoriteGamesArray.removeAll(where: { $0 == gameToShow} )
         }
     }
-    
-    @IBAction func closeDetailPagebuttonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        
+        
+        @IBAction func closeDetailPagebuttonClicked(_ sender: Any) {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
-    
-    
-}
-
-

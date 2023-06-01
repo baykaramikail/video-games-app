@@ -23,8 +23,7 @@ class NetworkManager{
         
         
         if let url = URL(string: urlString){
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let _ = error {
                     print("Unable to complete your request. Please check your internet connection")
                     return
@@ -40,8 +39,7 @@ class NetworkManager{
                         print("The data received from the server was invalid. Please try again.")
                     }
                 }
-            }
-            task.resume()
+            }.resume()
         }
     }
     
@@ -66,8 +64,7 @@ class NetworkManager{
         let urlString = "https://api.rawg.io/api/games/\(id)?key=\(apiKey)"
         
         if let url = URL(string: urlString){
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
+            URLSession.shared.dataTask(with: url) { data, response, error in
                 if error != nil { return }
                 guard let _ = response else { return }
                 
@@ -83,8 +80,7 @@ class NetworkManager{
                         print("Error occured when getting game description.")
                     }
                 }
-            }
-            task.resume()
+            }.resume()
         }
     }
 }

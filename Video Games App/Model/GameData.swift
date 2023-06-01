@@ -18,5 +18,9 @@ struct Results: Codable{
     let released: String
     let backgroundImage: String
     let rating: Double
+    
+    var favorite: Bool {
+        return false
+    }
 }
 
