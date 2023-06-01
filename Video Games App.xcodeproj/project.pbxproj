@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B30490322971CFB000441C95 /* GamesAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30490312971CFB000441C95 /* GamesAvatarImageView.swift */; };
 		B30490342972073B00441C95 /* GameDescriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30490332972073B00441C95 /* GameDescriptionData.swift */; };
 		B31533D7293F6DCE0028ACBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31533D6293F6DCE0028ACBD /* AppDelegate.swift */; };
 		B31533D9293F6DCE0028ACBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31533D8293F6DCE0028ACBD /* SceneDelegate.swift */; };
@@ -26,10 +25,13 @@
 		B3A4B7D02948F99400694C18 /* FavoriteGamesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4B7CF2948F99400694C18 /* FavoriteGamesCollectionViewCell.swift */; };
 		B3A7E6842972D22D00A91E61 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7E6832972D22D00A91E61 /* StringExtensions.swift */; };
 		B3F02EB8294BCECE00303271 /* Game Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F02EB7294BCECD00303271 /* Game Lists.swift */; };
+		B480A6444064F375FF04251D /* Pods_Video_Games_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A1EC3F4C5D9976D609489D /* Pods_Video_Games_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B30490312971CFB000441C95 /* GamesAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesAvatarImageView.swift; sourceTree = "<group>"; };
+		0616C9955AA49A8412DD6B00 /* Pods-Video Games App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video Games App.debug.xcconfig"; path = "Target Support Files/Pods-Video Games App/Pods-Video Games App.debug.xcconfig"; sourceTree = "<group>"; };
+		07A1EC3F4C5D9976D609489D /* Pods_Video_Games_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Video_Games_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		159F60BCE8A99E5664D0D04B /* Pods-Video Games App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video Games App.release.xcconfig"; path = "Target Support Files/Pods-Video Games App/Pods-Video Games App.release.xcconfig"; sourceTree = "<group>"; };
 		B30490332972073B00441C95 /* GameDescriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDescriptionData.swift; sourceTree = "<group>"; };
 		B31533D3293F6DCE0028ACBD /* Video Games App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Games App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31533D6293F6DCE0028ACBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,17 +59,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B480A6444064F375FF04251D /* Pods_Video_Games_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		100235597736926D1CD1BFEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07A1EC3F4C5D9976D609489D /* Pods_Video_Games_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FAA4E7485BECE38CB804E10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0616C9955AA49A8412DD6B00 /* Pods-Video Games App.debug.xcconfig */,
+				159F60BCE8A99E5664D0D04B /* Pods-Video Games App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B31533CA293F6DCE0028ACBD = {
 			isa = PBXGroup;
 			children = (
 				B31533D5293F6DCE0028ACBD /* Video Games App */,
 				B31533D4293F6DCE0028ACBD /* Products */,
+				8FAA4E7485BECE38CB804E10 /* Pods */,
+				100235597736926D1CD1BFEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,7 +186,6 @@
 		B3A7E6822972C70500A91E61 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B30490312971CFB000441C95 /* GamesAvatarImageView.swift */,
 				B3A7E6832972D22D00A91E61 /* StringExtensions.swift */,
 			);
 			path = Extensions;
@@ -177,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B31533E7293F6DCF0028ACBD /* Build configuration list for PBXNativeTarget "Video Games App" */;
 			buildPhases = (
+				F87EFC181BD70DE26709F9B6 /* [CP] Check Pods Manifest.lock */,
 				B31533CF293F6DCE0028ACBD /* Sources */,
 				B31533D0293F6DCE0028ACBD /* Frameworks */,
 				B31533D1293F6DCE0028ACBD /* Resources */,
+				CAC34F16B019A006C68646CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +259,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CAC34F16B019A006C68646CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video Games App/Pods-Video Games App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video Games App/Pods-Video Games App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video Games App/Pods-Video Games App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F87EFC181BD70DE26709F9B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Video Games App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B31533CF293F6DCE0028ACBD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -244,7 +309,6 @@
 				B3372E4A294473EF001D5B7B /* FavoriteGamesCollectionVC.swift in Sources */,
 				B37797B1296D87E700FF8145 /* GameData.swift in Sources */,
 				B39314AE29451E21000F8202 /* GameModel.swift in Sources */,
-				B30490322971CFB000441C95 /* GamesAvatarImageView.swift in Sources */,
 				B3A7E6842972D22D00A91E61 /* StringExtensions.swift in Sources */,
 				B30490342972073B00441C95 /* GameDescriptionData.swift in Sources */,
 				B343163B2975B97300735D85 /* PageVCCollectionViewCell.swift in Sources */,
@@ -400,6 +464,7 @@
 		};
 		B31533E8293F6DCF0028ACBD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0616C9955AA49A8412DD6B00 /* Pods-Video Games App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -414,6 +479,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,6 +495,7 @@
 		};
 		B31533E9293F6DCF0028ACBD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 159F60BCE8A99E5664D0D04B /* Pods-Video Games App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,6 +510,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

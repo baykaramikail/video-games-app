@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BaseViewController: UIViewController{
     
@@ -61,7 +62,7 @@ extension BaseViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == self.pageCollectionView{
             return firstThreeGames.count
         }else if collectionView == self.GamesCollectionView{
-            return games.count
+            return gamesArray.count
         }else{ return 0 }
     }
   
@@ -69,15 +70,15 @@ extension BaseViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == self.pageCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageControlCollectionViewCell", for: indexPath ) as! PageVCCollectionViewCell
             let game = firstThreeGames[indexPath.item]
-            cell.pageImage.downloadImage(from: game.backgroundImage)
+            cell.pageImage.sd_setImage(with: URL(string: game.backgroundImage))
             cell.pageImage.layer.cornerRadius = 20
             cell.pageName.text = game.name
             return cell
             
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath) as! GameCollectionViewCell
-            let game = games[indexPath.item]
-            cell.banner.downloadImage(from: game.backgroundImage)
+            let game = gamesArray[indexPath.item]
+            cell.banner.sd_setImage(with: URL(string: game.backgroundImage))
             cell.banner.layer.cornerRadius = 20
             cell.title.text = game.name
             cell.rating.text = String(game.rating)
@@ -91,7 +92,7 @@ extension BaseViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let selectedGame = firstThreeGames[indexPath.item]
             performSegue(withIdentifier: "showDetails", sender: selectedGame)
         }else {
-            let selectedGame = games[indexPath.item]
+            let selectedGame = gamesArray[indexPath.item]
             performSegue(withIdentifier: "showDetails", sender: selectedGame)
         }
     }
@@ -119,7 +120,7 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout{
     
     // requests new network call when the last cell is shown in the collection view
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-         if (indexPath.row == games.count - 1 ) {
+         if (indexPath.row == gamesArray.count - 1 ) {
            page += 1
              networkManager.getGames(page: page)
          }
@@ -159,8 +160,8 @@ extension BaseViewController: NetworkManagerDelegate{
     
     func getGames(model: [GameModel]) {
         
-        games += model
-        gamesCopy += model
+        gamesArray += model
+        gamesArrayCopy += model
         firstThreeGames = Array(model[0...2])
         DispatchQueue.main.async {
             self.pageCollectionView.reloadData()
@@ -187,14 +188,14 @@ extension BaseViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
-            games = gamesCopy
+            gamesArray = gamesArrayCopy
             self.GamesCollectionView.reloadData()
         }
         if searchText.count >= 3{
-            games = []
-            for game in gamesCopy{
+            gamesArray = []
+            for game in gamesArrayCopy{
                 if game.name.uppercased().contains(searchText.uppercased()){
-                    games.append(game)
+                    gamesArray.append(game)
                 }
             }
             self.GamesCollectionView.reloadData()
@@ -206,7 +207,7 @@ extension BaseViewController: UISearchBarDelegate{
        pageController.isHidden = false
        view.removeConstraints(newConstraints)
        view.addConstraints(originalConstraints)
-       games = gamesCopy
+       gamesArray = gamesArrayCopy
        self.GamesCollectionView.reloadData()
    }
     

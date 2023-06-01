@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 
-var games = [GameModel]()
+var gamesArray = [GameModel]()
 
-var gamesCopy = [GameModel]()
+var gamesArrayCopy = [GameModel]()
 
-var favoriteGames = [GameModel]()
+var favoriteGamesArray = [GameModel]()
 
 var firstThreeGames = [GameModel]()

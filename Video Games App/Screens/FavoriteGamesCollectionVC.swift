@@ -38,7 +38,7 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
         super.viewWillAppear(animated)
         self.FavoriteGamesCollectionView.reloadData()
         
-        if favoriteGames.isEmpty{
+        if favoriteGamesArray.isEmpty{
             self.warningLabel.isHidden = false
         }else{
             warningLabel.isHidden = true
@@ -55,14 +55,14 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
     
     // favorite collection view stuff. number of rows etc
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return favoriteGames.count
+        return favoriteGamesArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteGameCell", for: indexPath) as! FavoriteGamesCollectionViewCell
-        let game = favoriteGames[indexPath.item]
+        let game = favoriteGamesArray[indexPath.item]
         
-        cell.banner.downloadImage(from: game.backgroundImage)
+        cell.banner.sd_setImage(with: URL(string: game.backgroundImage))
         cell.banner.layer.cornerRadius = 20
         cell.title.text = game.name
         cell.rating.text = String(game.rating)
@@ -71,7 +71,7 @@ class FavoriteGamesCollectionVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedGame = favoriteGames[indexPath.item]
+        let selectedGame = favoriteGamesArray[indexPath.item]
 
         performSegue(withIdentifier: "showDetails", sender: selectedGame)
     }

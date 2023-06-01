@@ -23,8 +23,8 @@ class DetailsGameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.banner.downloadImage(from: gameToShow.backgroundImage)
-        self.banner.layer.cornerRadius = 25
+        self.banner.sd_setImage(with: URL(string: gameToShow.backgroundImage))
+        self.banner.layer.cornerRadius = 20
         self.name.text = gameToShow.name
         self.released.text = "Release date: \(gameToShow.released)"
         self.metacriticRate.text = "Rating: \(gameToShow.rating)"
@@ -41,48 +41,35 @@ class DetailsGameVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        for game in favoriteGames{
-            if gameToShow.id == game.id{
-                self.likeButton.tintColor = .green
-                self.likeButtonSuperview.backgroundColor = .white
-                
-            }
+        if favoriteGamesArray.contains(where: {$0.id == gameToShow.id}){
+            self.likeButton.tintColor = .green
+            self.likeButtonSuperview.backgroundColor = .white
+
         }
     }
     
     @IBAction func likeButtonClicked(_ sender: Any) {
-        if gameToShow.favorited{
-            dislikeAction()
-            return
+        if self.likeButton.tintColor == .white{
+            self.likeButton.tintColor = .green
+            self.likeButtonSuperview.backgroundColor = .white
+            
+            for var game in gamesArray{
+                if game.id == gameToShow.id{
+                    game.favorited = true
+                    favoriteGamesArray.insert(game, at: 0)
+                    break
+                }
+            }
+        }else{
+            self.likeButton.tintColor = .white
+            self.likeButtonSuperview.backgroundColor = .black
+            favoriteGamesArray.removeAll(where: { $0 == gameToShow} )
+        }
+    }
+        
+        
+        @IBAction func closeDetailPagebuttonClicked(_ sender: Any) {
+            self.dismiss(animated: true, completion: nil)
         }
         
-        self.likeButton.tintColor = .green
-        self.likeButtonSuperview.backgroundColor = .white
-        for var game in games{
-            if game.id == gameToShow.id{
-                game.favorited = true
-                favoriteGames.insert(game, at: 0)
-                break
-            }
-        }
     }
-    
-    func dislikeAction(){
-        self.likeButton.tintColor = .white
-        self.likeButtonSuperview.backgroundColor = .black
-        favoriteGames.removeAll(where: { $0 == gameToShow})
-        for var game in games{
-            if game.id == gameToShow.id{
-                game.favorited = false
-                break
-            }
-        }
-    }
-    
-    @IBAction func closeDetailPagebuttonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-}
-
-
