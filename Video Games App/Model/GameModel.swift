@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct GameModel: Codable{
+struct GameModel: Codable, Equatable{
   
     var favorited = false
     

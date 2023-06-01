@@ -11,7 +11,7 @@ class DetailsGameVC: UIViewController {
     
     var gameToShow: GameModel!
     let networkManager = NetworkManager()
-
+    
     @IBOutlet var banner: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var released: UILabel!
@@ -40,28 +40,41 @@ class DetailsGameVC: UIViewController {
         }
     }
     
-    @IBAction func likeButtonClicked(_ sender: Any) {
-        if self.likeButton.tintColor == .white{
-            self.likeButton.tintColor = .green
-            self.likeButtonSuperview.backgroundColor = .white
-            for var game in games{
-                if game.id == gameToShow.id{
-                    game.favorited = true
-                    favoriteGames.insert(game, at: 0)
-                    break
-                }
+    override func viewWillAppear(_ animated: Bool) {
+        for game in favoriteGames{
+            if gameToShow.id == game.id{
+                self.likeButton.tintColor = .green
+                self.likeButtonSuperview.backgroundColor = .white
+                
             }
-        }else{
-            self.likeButton.tintColor = .white
-            self.likeButtonSuperview.backgroundColor = .black
-            for var game in games{
-                if game.id == gameToShow.id{
-                    game.favorited = false
-                    favoriteGames = favoriteGames.filter { game in
-                        game.id != gameToShow.id
-                    }
-                    break
-                }
+        }
+    }
+    
+    @IBAction func likeButtonClicked(_ sender: Any) {
+        if gameToShow.favorited{
+            dislikeAction()
+            return
+        }
+        
+        self.likeButton.tintColor = .green
+        self.likeButtonSuperview.backgroundColor = .white
+        for var game in games{
+            if game.id == gameToShow.id{
+                game.favorited = true
+                favoriteGames.insert(game, at: 0)
+                break
+            }
+        }
+    }
+    
+    func dislikeAction(){
+        self.likeButton.tintColor = .white
+        self.likeButtonSuperview.backgroundColor = .black
+        favoriteGames.removeAll(where: { $0 == gameToShow})
+        for var game in games{
+            if game.id == gameToShow.id{
+                game.favorited = false
+                break
             }
         }
     }
@@ -69,8 +82,7 @@ class DetailsGameVC: UIViewController {
     @IBAction func closeDetailPagebuttonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
+
 }
 
 

@@ -74,7 +74,7 @@ extension BaseViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.pageName.text = game.name
             return cell
             
-        }else if collectionView == self.GamesCollectionView {
+        }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath) as! GameCollectionViewCell
             let game = games[indexPath.item]
             cell.banner.downloadImage(from: game.backgroundImage)
@@ -84,7 +84,6 @@ extension BaseViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.released.text = game.released
             return cell
         }
-        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -103,7 +102,7 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout{
     
     // aligning the collection view cells in the middle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            let cellWidth: CGFloat = 382
+        let cellWidth: CGFloat = view.frame.size.width - 20
             let numberOfCells = floor(view.frame.size.width / cellWidth)
             let edgeInsets = (view.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
         return UIEdgeInsets(top: 0, left: edgeInsets, bottom: 0, right: edgeInsets)
@@ -112,9 +111,9 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout{
     // gives collection view's cells its sizes
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.GamesCollectionView{
-            return CGSize(width: 360, height: 75)
+            return CGSize(width: view.frame.size.width - 20 , height: 80)
         }else{
-            return CGSize(width: 382, height: 210)
+            return CGSize(width: view.frame.size.width - 20, height: self.pageCollectionView.frame.size.width * 0.55)
         }
     }
     
