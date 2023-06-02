@@ -540,7 +540,7 @@
                         <outlet property="metacriticRate" destination="dAd-ap-xa3" id="Hmp-qs-doM"/>
                         <outlet property="name" destination="uss-GJ-6Ne" id="BKV-UH-Aui"/>
                         <outlet property="released" destination="95q-3Y-tA1" id="xIh-NG-f3b"/>
-                        <segue destination="i2l-Ut-J7u" kind="presentation" identifier="showScreenshots" id="sIk-IF-7ri"/>
+                        <segue destination="i2l-Ut-J7u" kind="presentation" identifier="showScreenshots" id="Ldw-PL-vIu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9E-xX-TbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -585,13 +585,30 @@
                             <outlet property="delegate" destination="i2l-Ut-J7u" id="mwN-H7-2Yz"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="TVF-Gy-a8f"/>
                     <connections>
                         <outlet property="screenshotsTableView" destination="6hm-sZ-zoN" id="KNF-Fv-Aec"/>
+                        <segue destination="OiT-E9-ghR" kind="presentation" identifier="lookClose" modalPresentationStyle="pageSheet" modalTransitionStyle="crossDissolve" id="1zs-xZ-oWB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDD-w8-mbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3460.8695652173915" y="417.85714285714283"/>
+            <point key="canvasLocation" x="3351" y="418"/>
+        </scene>
+        <!--Detail ScreenshotsVC-->
+        <scene sceneID="fCs-F1-Ixn">
+            <objects>
+                <viewController id="OiT-E9-ghR" customClass="DetailScreenshotsVC" customModule="Video_Games_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="srY-hG-ZOF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WKl-Ti-59I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wiz-0Y-aP3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4249" y="418"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KVB-GM-3qX">

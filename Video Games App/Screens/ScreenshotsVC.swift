@@ -13,7 +13,7 @@ class ScreenshotsVC: UITableViewController {
     @IBOutlet var screenshotsTableView: UITableView!
     
     var screenshotsArray = [Images]()
-    var gameId = 0
+    var gameId: Int!
     
     
     override func viewDidLoad() {
@@ -52,10 +52,18 @@ extension ScreenshotsVC{
         let cell = tableView.dequeueReusableCell(withIdentifier: "screenshotCell", for: indexPath) as! ScreenhotsTableViewCell
         let url = screenshotsArray[indexPath.row].image
         cell.screenshotImageView.sd_setImage(with: URL(string: url))
-
-        // Configure the cell...
-
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let str = screenshotsArray[indexPath.row].image
+       performSegue(withIdentifier: "lookClose", sender: str)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let targetVC = segue.destination as? DetailScreenshotsVC, let urlStr = sender as? String{
+            targetVC.urlString = urlStr
+        }
+    }
+    
 }

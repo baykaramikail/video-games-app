@@ -16,6 +16,7 @@
 		B3153EB92A29FB89003F10D1 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3153EB82A29FB89003F10D1 /* Screenshot.swift */; };
 		B3153EBB2A2A0942003F10D1 /* ScreenshotsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3153EBA2A2A0942003F10D1 /* ScreenshotsVC.swift */; };
 		B3153EBD2A2A0C0B003F10D1 /* ScreenhotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3153EBC2A2A0C0B003F10D1 /* ScreenhotsTableViewCell.swift */; };
+		B3153EBF2A2A6DAC003F10D1 /* DetailScreenshotsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3153EBE2A2A6DAC003F10D1 /* DetailScreenshotsVC.swift */; };
 		B327121C294B633F00158DFC /* DetailsGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B327121B294B633F00158DFC /* DetailsGameVC.swift */; };
 		B335A19E296C7C1F00FA14F5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335A19D296C7C1F00FA14F5 /* NetworkManager.swift */; };
 		B3372E48294470A7001D5B7B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3372E47294470A7001D5B7B /* BaseViewController.swift */; };
@@ -46,6 +47,7 @@
 		B3153EB82A29FB89003F10D1 /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		B3153EBA2A2A0942003F10D1 /* ScreenshotsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsVC.swift; sourceTree = "<group>"; };
 		B3153EBC2A2A0C0B003F10D1 /* ScreenhotsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenhotsTableViewCell.swift; sourceTree = "<group>"; };
+		B3153EBE2A2A6DAC003F10D1 /* DetailScreenshotsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenshotsVC.swift; sourceTree = "<group>"; };
 		B327121B294B633F00158DFC /* DetailsGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsGameVC.swift; sourceTree = "<group>"; };
 		B335A19D296C7C1F00FA14F5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B3372E47294470A7001D5B7B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				B3372E49294473EF001D5B7B /* FavoriteGamesCollectionVC.swift */,
 				B327121B294B633F00158DFC /* DetailsGameVC.swift */,
 				B3153EBA2A2A0942003F10D1 /* ScreenshotsVC.swift */,
+				B3153EBE2A2A6DAC003F10D1 /* DetailScreenshotsVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				B343163B2975B97300735D85 /* PageVCCollectionViewCell.swift in Sources */,
 				B3372E4C29448662001D5B7B /* CustomUIView.swift in Sources */,
 				B3A4B7CE2948EA8B00694C18 /* GameCollectionViewCell.swift in Sources */,
+				B3153EBF2A2A6DAC003F10D1 /* DetailScreenshotsVC.swift in Sources */,
 				B3153EBD2A2A0C0B003F10D1 /* ScreenhotsTableViewCell.swift in Sources */,
 				B335A19E296C7C1F00FA14F5 /* NetworkManager.swift in Sources */,
 				B3153EB92A29FB89003F10D1 /* Screenshot.swift in Sources */,
