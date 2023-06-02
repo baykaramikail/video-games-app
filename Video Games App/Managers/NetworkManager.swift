@@ -16,11 +16,10 @@ protocol NetworkManagerDelegate{
 class NetworkManager{
     
     var delegate: NetworkManagerDelegate?
+    private let apiKey = "d578fc59bae14c89908b8541b5014ee8"
     
     func getGames(page: Int){
-        let apiKey = "d578fc59bae14c89908b8541b5014ee8"
-        let urlString = "https://api.rawg.io/api/games?key=\(apiKey)&page=\(page)"
-        
+        let urlString = "https://api.rawg.io/api/games?key=\(self.apiKey)&page=\(page)"
         
         if let url = URL(string: urlString){
             URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -83,4 +82,27 @@ class NetworkManager{
             }.resume()
         }
     }
+    
+    func getScreenshots(id: Int, completion: @escaping ([Images]) -> Void){
+        let urlString = "https://api.rawg.io/api/games/\(id)/screenshots?key=\(apiKey)"
+        if let url = URL(string: urlString){
+            
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if error != nil {return }
+                guard response != nil else { return }
+                
+                if let data = data{
+                    let decoder = JSONDecoder()
+                    do{
+                        let decodedData = try decoder.decode(Screenshot.self, from: data)
+                        completion(decodedData.results)
+                        
+                    }catch{
+                        print("there was an error while parsing screenshots")
+                    }
+                }
+            }.resume()
+        }
+    }
+    
 }

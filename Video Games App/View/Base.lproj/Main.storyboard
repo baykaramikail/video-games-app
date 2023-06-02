@@ -329,7 +329,7 @@
                         <outlet property="GamesCollectionView" destination="Ed5-MW-4vc" id="w9c-HG-fAc"/>
                         <outlet property="pageCollectionView" destination="sS4-fT-nrL" id="KH1-ml-aVp"/>
                         <outlet property="pageController" destination="8sK-pL-5iV" id="yPZ-Rh-oyi"/>
-                        <segue destination="9Hr-9e-spN" kind="presentation" identifier="showDetails" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="nXu-Lk-arG"/>
+                        <segue destination="9Hr-9e-spN" kind="presentation" identifier="showDetails" modalPresentationStyle="fullScreen" id="tLj-w7-Xr1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbH-wG-pgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -347,6 +347,62 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-PS-2X2">
                                 <rect key="frame" x="8" y="0.0" width="398" height="269"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbF-xj-WYQ" customClass="CustomView" customModule="Video_Games_App" customModuleProvider="target">
+                                <rect key="frame" x="350" y="205" width="64" height="64"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGf-FD-vuL" customClass="CustomBlurView" customModule="Video_Games_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="41c-fJ-J03">
+                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="systemUltraThinMaterialDark"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="33"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lN-kP-We8">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=",">
+                                            <imageReference key="image" image="hand.thumbsup.fill" catalog="system" symbolScale="large"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="likeButtonClicked:" destination="9Hr-9e-spN" eventType="touchUpInside" id="k3V-V9-Azv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9lN-kP-We8" secondAttribute="trailing" id="01Q-Nh-K7e"/>
+                                    <constraint firstItem="9lN-kP-We8" firstAttribute="top" secondItem="qbF-xj-WYQ" secondAttribute="top" id="2cl-wt-AEW"/>
+                                    <constraint firstAttribute="trailing" secondItem="jGf-FD-vuL" secondAttribute="trailing" id="FNv-S4-fnH"/>
+                                    <constraint firstItem="jGf-FD-vuL" firstAttribute="top" secondItem="qbF-xj-WYQ" secondAttribute="top" id="Rwp-XV-leH"/>
+                                    <constraint firstAttribute="bottom" secondItem="jGf-FD-vuL" secondAttribute="bottom" id="SxI-rS-tnh"/>
+                                    <constraint firstAttribute="width" constant="64" id="V6A-ZJ-bHw"/>
+                                    <constraint firstItem="jGf-FD-vuL" firstAttribute="leading" secondItem="qbF-xj-WYQ" secondAttribute="leading" id="dSb-1M-wky"/>
+                                    <constraint firstAttribute="bottom" secondItem="9lN-kP-We8" secondAttribute="bottom" id="iHC-v3-Fqj"/>
+                                    <constraint firstItem="9lN-kP-We8" firstAttribute="leading" secondItem="qbF-xj-WYQ" secondAttribute="leading" id="qHG-Fw-ubf"/>
+                                    <constraint firstAttribute="height" constant="64" id="qda-Kq-Coa"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="33"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqw-v7-deO">
+                                <rect key="frame" x="89" y="234.5" width="236" height="34.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Screenshots from game --&gt;"/>
+                                <connections>
+                                    <action selector="showScreeshotsButtonClicked:" destination="9Hr-9e-spN" eventType="touchUpInside" id="JsZ-he-6OR"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1J3-K4-KAT">
                                 <rect key="frame" x="0.0" y="269" width="414" height="627"/>
                                 <subviews>
@@ -452,53 +508,6 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="qSv-K6-v9s"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="I5d-3T-ofw"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbF-xj-WYQ" customClass="CustomView" customModule="Video_Games_App" customModuleProvider="target">
-                                <rect key="frame" x="350" y="205" width="64" height="64"/>
-                                <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGf-FD-vuL" customClass="CustomBlurView" customModule="Video_Games_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="41c-fJ-J03">
-                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                        <blurEffect style="systemUltraThinMaterialDark"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="33"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </visualEffectView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lN-kP-We8">
-                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title=",">
-                                            <imageReference key="image" image="hand.thumbsup.fill" catalog="system" symbolScale="large"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="likeButtonClicked:" destination="9Hr-9e-spN" eventType="touchUpInside" id="k3V-V9-Azv"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="9lN-kP-We8" secondAttribute="trailing" id="01Q-Nh-K7e"/>
-                                    <constraint firstItem="9lN-kP-We8" firstAttribute="top" secondItem="qbF-xj-WYQ" secondAttribute="top" id="2cl-wt-AEW"/>
-                                    <constraint firstAttribute="trailing" secondItem="jGf-FD-vuL" secondAttribute="trailing" id="FNv-S4-fnH"/>
-                                    <constraint firstItem="jGf-FD-vuL" firstAttribute="top" secondItem="qbF-xj-WYQ" secondAttribute="top" id="Rwp-XV-leH"/>
-                                    <constraint firstAttribute="bottom" secondItem="jGf-FD-vuL" secondAttribute="bottom" id="SxI-rS-tnh"/>
-                                    <constraint firstAttribute="width" constant="64" id="V6A-ZJ-bHw"/>
-                                    <constraint firstItem="jGf-FD-vuL" firstAttribute="leading" secondItem="qbF-xj-WYQ" secondAttribute="leading" id="dSb-1M-wky"/>
-                                    <constraint firstAttribute="bottom" secondItem="9lN-kP-We8" secondAttribute="bottom" id="iHC-v3-Fqj"/>
-                                    <constraint firstItem="9lN-kP-We8" firstAttribute="leading" secondItem="qbF-xj-WYQ" secondAttribute="leading" id="qHG-Fw-ubf"/>
-                                    <constraint firstAttribute="height" constant="64" id="qda-Kq-Coa"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="33"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xPF-xj-rGL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -509,9 +518,11 @@
                             <constraint firstItem="1J3-K4-KAT" firstAttribute="trailing" secondItem="xPF-xj-rGL" secondAttribute="trailing" id="HMm-HM-7HD"/>
                             <constraint firstItem="hvt-PS-2X2" firstAttribute="height" secondItem="Ylt-wD-qLi" secondAttribute="height" multiplier="0.3" id="IHw-SW-EWr"/>
                             <constraint firstItem="hvt-PS-2X2" firstAttribute="top" secondItem="xPF-xj-rGL" secondAttribute="top" id="KZQ-qk-rEf"/>
+                            <constraint firstItem="Xqw-v7-deO" firstAttribute="centerX" secondItem="Ylt-wD-qLi" secondAttribute="centerX" id="MZF-21-LXd"/>
                             <constraint firstAttribute="trailing" secondItem="hvt-PS-2X2" secondAttribute="trailing" constant="8" id="NU4-Yd-grc"/>
                             <constraint firstItem="1J3-K4-KAT" firstAttribute="top" secondItem="qbF-xj-WYQ" secondAttribute="bottom" id="Ukg-5B-bVn"/>
                             <constraint firstAttribute="bottom" secondItem="1J3-K4-KAT" secondAttribute="bottom" id="ZuA-1o-LBK"/>
+                            <constraint firstItem="1J3-K4-KAT" firstAttribute="top" secondItem="Xqw-v7-deO" secondAttribute="bottom" id="bIN-jf-7Hb"/>
                             <constraint firstItem="hvt-PS-2X2" firstAttribute="leading" secondItem="Ylt-wD-qLi" secondAttribute="leading" constant="8" id="iO3-hG-FVp"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -529,11 +540,58 @@
                         <outlet property="metacriticRate" destination="dAd-ap-xa3" id="Hmp-qs-doM"/>
                         <outlet property="name" destination="uss-GJ-6Ne" id="BKV-UH-Aui"/>
                         <outlet property="released" destination="95q-3Y-tA1" id="xIh-NG-f3b"/>
+                        <segue destination="i2l-Ut-J7u" kind="presentation" identifier="showScreenshots" id="sIk-IF-7ri"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9E-xX-TbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="418"/>
+            <point key="canvasLocation" x="2406" y="418"/>
+        </scene>
+        <!--ScreenshotsVC-->
+        <scene sceneID="M9Z-sD-X1P">
+            <objects>
+                <tableViewController storyboardIdentifier="ScreenshotsVC" id="i2l-Ut-J7u" customClass="ScreenshotsVC" customModule="Video_Games_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="6hm-sZ-zoN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="screenshotCell" rowHeight="230" id="t4x-ac-gm4" customClass="ScreenhotsTableViewCell" customModule="Video_Games_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="414" height="230"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t4x-ac-gm4" id="yR0-6R-85B">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-dq-R8B">
+                                            <rect key="frame" x="8" y="0.0" width="398" height="228"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Lt0-dq-R8B" firstAttribute="top" secondItem="yR0-6R-85B" secondAttribute="top" id="ZIo-iJ-Z9Q"/>
+                                        <constraint firstAttribute="trailing" secondItem="Lt0-dq-R8B" secondAttribute="trailing" constant="8" id="lkc-LG-JXt"/>
+                                        <constraint firstAttribute="bottom" secondItem="Lt0-dq-R8B" secondAttribute="bottom" constant="2" id="uJ8-3x-uA5"/>
+                                        <constraint firstItem="Lt0-dq-R8B" firstAttribute="leading" secondItem="yR0-6R-85B" secondAttribute="leading" constant="8" id="zdU-lx-or9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="screenshotContainer" destination="yR0-6R-85B" id="J4o-ps-s1y"/>
+                                    <outlet property="screenshotImageView" destination="Lt0-dq-R8B" id="L2L-tz-Wb0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="i2l-Ut-J7u" id="te1-Qz-svr"/>
+                            <outlet property="delegate" destination="i2l-Ut-J7u" id="mwN-H7-2Yz"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="screenshotsTableView" destination="6hm-sZ-zoN" id="KNF-Fv-Aec"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pDD-w8-mbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3460.8695652173915" y="417.85714285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KVB-GM-3qX">
@@ -694,7 +752,7 @@
                     <navigationItem key="navigationItem" title="Your Favorites" id="wp3-Cx-uhj"/>
                     <connections>
                         <outlet property="FavoriteGamesCollectionView" destination="2sp-2U-rV4" id="0uF-kQ-YJd"/>
-                        <segue destination="9Hr-9e-spN" kind="presentation" identifier="showDetails" modalPresentationStyle="fullScreen" id="cgN-48-VRv"/>
+                        <segue destination="9Hr-9e-spN" kind="presentation" identifier="showDetails" modalPresentationStyle="fullScreen" id="cRJ-DK-3zT"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi6-fR-1U7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -723,7 +781,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cgN-48-VRv"/>
+        <segue reference="cRJ-DK-3zT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>

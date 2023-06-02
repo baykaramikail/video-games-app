@@ -71,5 +71,16 @@ class DetailsGameVC: UIViewController {
         @IBAction func closeDetailPagebuttonClicked(_ sender: Any) {
             self.dismiss(animated: true, completion: nil)
         }
-        
+    
+    @IBAction func showScreeshotsButtonClicked(_ sender: Any) {
+        let id = self.gameToShow.id
+        performSegue(withIdentifier: "showScreenshots", sender: id)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let targetVC = segue.destination as? ScreenshotsVC, let id = sender as? Int {
+            targetVC.gameId = id
+        }
+    }
+        
+}
