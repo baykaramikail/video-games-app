@@ -4,8 +4,8 @@ This is an app that will display various games that are fetched from internet(ht
 ## Pattern
 -MVC
 
-## How It Looks Like
-https://youtube.com/shorts/ND-CV8dwZBs?feature=share
+## A short video that presents how the app looks like
+https://youtu.be/SooRgJq7A88
 
 ## Screenshots
 <img width="347" alt="Ekran Resmi 2023-05-17 21 40 30" src="https://github.com/baykaramikail/video-games-app/assets/96432023/f60ec989-e42e-4195-8ce0-d923b5a46d39">
